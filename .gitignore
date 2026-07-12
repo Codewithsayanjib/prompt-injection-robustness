@@ -1,6 +1,5 @@
-# Data (downloaded public sets + frozen samples are large / re-derivable)
+# Raw downloads (re-derivable). The seed-frozen manifests ARE committed.
 data/raw/
-data/samples/*.jsonl
 
 # Results & figures are regenerated; keep dirs, ignore contents
 results/*.jsonl
