@@ -1,0 +1,29 @@
+# Data (downloaded public sets + frozen samples are large / re-derivable)
+data/raw/
+data/samples/*.jsonl
+
+# Results & figures are regenerated; keep dirs, ignore contents
+results/*.jsonl
+results/*.csv
+results/*.log
+results/*.pid
+results/*.txt
+results_alt/*.jsonl
+results_alt/*.csv
+figures/*.png
+figures/*.pdf
+
+# Paper sources kept out of the code repo
+paper/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.ipynb_checkpoints/
+.DS_Store
+
+# Pinned lockfile is committed; everything else env-local
+requirements.lock.txt
+!.gitkeep

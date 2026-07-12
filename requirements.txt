@@ -1,0 +1,22 @@
+# Core harness + analysis
+pyyaml
+pandas
+matplotlib
+numpy
+tqdm
+datasets            # download + sample the public attack/benign sets
+scikit-learn        # detector P/R/F1 cross-checks
+
+# Generation backend (Apple Silicon) -- used for every model in this study
+mlx-lm              # 4-bit generation via Metal; uses mlx-community/* models
+
+# Detector guardrail defense (deberta text-classification, runs on CPU)
+transformers
+torch
+
+# Optional: HF/CUDA backend (only if running the models on an NVIDIA GPU)
+#   accelerate
+#   bitsandbytes      # 4-bit nf4; CUDA-only, do NOT install on macOS
+
+# Pin exact versions before the final run for reproducibility:
+#   pip freeze > requirements.lock.txt

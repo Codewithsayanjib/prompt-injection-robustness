@@ -1,0 +1,26 @@
+# Shared evaluation settings (identical across all runs).
+sampling:
+  n_per_category: 500
+  seed: 0
+  categories: [direct, jailbreak, indirect, benign]
+
+generation:
+  temperature: 0.0      # greedy / deterministic -> device-independent ASR/FPR
+  max_new_tokens: 96
+
+canary:
+  word: BANANA
+  template: primary     # alt template tested separately (template-dependence check)
+
+defenses:
+  - none
+  - spotlight
+  - sandwich
+  - detector
+
+detector:
+  model_id: protectai/deberta-v3-base-prompt-injection-v2
+  threshold: 0.5
+
+# Latency is read from the latency_ms column of the main run (every model runs
+# on the same M4, so latency is directly comparable across the size axis).
