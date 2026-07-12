@@ -139,6 +139,15 @@ python -m src.run_eval --backend mlx --device m4 \
 - **Detector**: ProtectAI `deberta-v3-base-prompt-injection-v2`, run on CPU with inputs capped at 512 tokens.
 - **Datasets**: direct = xTRam1/safe-guard + deepset · jailbreak = AdvBench · indirect = LLMail-Inject · benign = SQuAD.
 
+## 📦 Data & reproducibility
+
+Everything needed for **exact** reproduction is released:
+
+- **Seed-frozen input manifests** — `data/samples/*.jsonl` (in this repo). The exact 500 samples/category used, so `indirect` inputs (drawn from a streaming dataset) reproduce byte-for-byte without re-sampling.
+- **Per-generation scored outputs** — all 80,000 rows (5 models × 4 defenses × 4 categories × 500, primary + alt templates) plus the aggregated CSVs, in the [**v1.0 release**](https://github.com/Codewithsayanjib/prompt-injection-robustness/releases/tag/v1.0).
+
+Re-run `python -m src.metrics` over the released outputs to regenerate every table; scoring is deterministic, so the numbers match exactly.
+
 ## 📄 Citation
 
 If you use this code, please cite the accompanying paper:
